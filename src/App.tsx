@@ -108,7 +108,8 @@ const App = () => {
     setListaSemanal(listaSemanal.filter(p => p.id !== productoId));
   };
 
-  const obtenerProductosPorCategoria = (categoriaId: string, lista: Producto[] | ProductoSemanal[]) => {
+  // --- ESTA ES LA FUNCIÓN CORREGIDA ---
+  const obtenerProductosPorCategoria = <T extends Producto>(categoriaId: string, lista: T[]): T[] => {
     return lista.filter(p => p.categoria === categoriaId);
   };
 
@@ -279,7 +280,7 @@ const App = () => {
             ) : (
               <div className="space-y-4 max-h-96 overflow-y-auto">
                 {categorias.map(categoria => {
-                  const productos = obtenerProductosPorCategoria(categoria.id, listaSemanal) as ProductoSemanal[];
+                  const productos = obtenerProductosPorCategoria(categoria.id, listaSemanal);
                   if (productos.length === 0) return null;
                   
                   return (
