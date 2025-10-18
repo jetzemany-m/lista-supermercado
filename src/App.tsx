@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ShoppingCart, Plus, Trash2, RotateCcw, Check, X } from 'lucide-react';
 
 interface Categoria {
@@ -372,3 +372,4 @@ const App = () => {
 };
 
 export default App;
+
